@@ -1,47 +1,47 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
-  <div class="container">
-    <a class="navbar-brand fw-bold fs-4 text-primary" [routerLink]="['/']">Mi Tienda</a>
-    <button
-      class="navbar-toggler border-0"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<ul class="navbar-nav align-items-center gap-3">
+  <!-- Si hay usuario logueado -->
+  <ng-container *ngIf="usuarioLogueado; else menuNoLogueado">
+    <li class="nav-item">
+      <span class="nav-link px-4 py-2 text-success fw-semibold">
+        {{ usuarioLogueado.firstName }} {{ usuarioLogueado.lastName }}
+      </span>
+    </li>
+    <li class="nav-item">
+      <a
+        [routerLink]="['/producto/ver-productos']"
+        class="nav-link px-4 py-2 rounded-pill text-primary fw-semibold"
+        routerLinkActive="active"
+        >Ver Productos</a
+      >
+    </li>
+    <!-- agregar botón de logout acá -->
+  </ng-container>
 
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav align-items-center gap-3">
-        <li class="nav-item">
-          <a
-            [routerLink]="['/usuario/signin']"
-            class="nav-link px-4 py-2 rounded-pill text-primary fw-semibold"
-            routerLinkActive="active"
-            >Iniciar Sesión</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            [routerLink]="['/usuario/signup']"
-            class="nav-link px-4 py-2 rounded-pill text-primary fw-semibold"
-            routerLinkActive="active"
-            >Registrarme</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            [routerLink]="['/producto/ver-productos']"
-            class="nav-link px-4 py-2 rounded-pill text-primary fw-semibold"
-            routerLinkActive="active"
-            >Ver Productos</a
-          >
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<router-outlet></router-outlet>
+  <!-- Si NO hay usuario logueado -->
+  <ng-template #menuNoLogueado>
+    <li class="nav-item">
+      <a
+        [routerLink]="['/usuario/signin']"
+        class="nav-link px-4 py-2 rounded-pill text-primary fw-semibold"
+        routerLinkActive="active"
+        >Iniciar Sesión</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        [routerLink]="['/usuario/signup']"
+        class="nav-link px-4 py-2 rounded-pill text-primary fw-semibold"
+        routerLinkActive="active"
+        >Registrarme</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        [routerLink]="['/producto/ver-productos']"
+        class="nav-link px-4 py-2 rounded-pill text-primary fw-semibold"
+        routerLinkActive="active"
+        >Ver Productos</a
+      >
+    </li>
+  </ng-template>
+</ul>
