@@ -6,9 +6,9 @@ export interface Usuario {
     address:   string;
 }
 
-export interface SignInResponse {
-  usuario: Usuario;
-}
+// export interface SignInResponse {
+//   usuario: Usuario;
+// }
 
 export interface UsuarioRegistro {
   email: string;

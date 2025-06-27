@@ -8,9 +8,9 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { Router } from '@angular/router';
-import { SignInResponse, Usuario } from '../../interfaces/usuario.interface';
 import { AuthUsuarioService } from '../../../../api/services/usuario/auth-usuario.service';
-
+import { UsuarioRest } from '../../../../api/services/usuario/interfaces/usuario.interface.rest';
+import { UsuarioMapper } from '../../../../api/services/usuario/mappings/usuario.mapper';
 
 @Component({
   selector: 'app-signin',
@@ -25,6 +25,8 @@ export class SigninComponent implements OnInit {
   router= inject(Router)
   authService= inject(AuthUsuarioService)
   form!: FormGroup;
+  bgImg: string = '/img/bg-jordan.jpg';
+
 
   constructor(private fb: FormBuilder, private usuarioService: UsuarioService) {}
 
@@ -49,11 +51,10 @@ export class SigninComponent implements OnInit {
   console.log('Datos para login:', this.form.value);  
 
     this.usuarioService.iniciarSesion(this.form.value).subscribe({
-      next: (res: SignInResponse) => {
-
+      next: (res: UsuarioRest) => {
         console.log('Login OK', res);
-        const { usuario } = res;
-        this.authService.setUsuario(usuario)    
+        UsuarioMapper.mapUsuarioRestToUsuario(res) // MAPEO A USUARIO
+        this.authService.setUsuario(res)  // Setea en LocalStorage  
 
         this.router.navigate(['/']);
       },

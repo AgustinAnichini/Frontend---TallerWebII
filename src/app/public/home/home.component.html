@@ -1,1 +1,61 @@
-<p>home works!</p>
+<section class="bg-home">
+    <p-galleria
+      [value]="images"
+      [showItemNavigators]="true"
+      [showThumbnails]="false"
+      [showIndicators]="true"
+      [showItemNavigatorsOnHover]="true"
+      [circular]="true"
+      [responsiveOptions]="responsiveOptions"
+      [containerStyle]="{ 'max-width': '100%' }"
+    >
+      <ng-template #item let-item>
+        <img [src]="item.itemImageSrc" style="width: 100%; display: block;" />
+      </ng-template>
+      <ng-template #thumbnail let-item>
+        <img [src]="item.thumbnailImageSrc" style="display: block;" />
+      </ng-template>
+    </p-galleria>
+
+    <section class="benefits">
+      <div class="benefit">
+        <img [src]="sendIcon" alt="Envios a todo el pais" class="icon">
+        <p class="mt-3">Envíos a todo el país</p>
+      </div>
+      <div class="benefit">
+        <img [src]="pagoIcon" alt="Envios a todo el pais" class="icon">
+        <p class="mt-3">3 cuotas sin interés</p>
+      </div>
+      <div class="benefit">
+        <img [src]="segurityIcon" alt="Envios a todo el pais" class="icon">
+        <p class="mt-3">Compra 100% segura</p>
+      </div>
+    </section>
+
+    <div class="categorias">
+      <div>
+        <a [routerLink]="['/']" class="cursor-pointer"><img [src]="hombre" alt=""></a>
+      </div>
+
+      <div>
+         <a [routerLink]="['/']" class="cursor-pointer"><img [src]="mujer" alt=""></a>
+      </div>
+
+      <div>        
+         <a [routerLink]="['/']" class="cursor-pointer"><img [src]="ninio" alt=""></a>
+      </div>
+    </div>
+
+    <div class="destacados">
+      <h1>Destacados de la Semana</h1>
+
+      <div class="container-img-dest">
+        <div><a [routerLink]="['/']" class="cursor-pointer img-destacado"><img [src]="descatacado1" alt=""></a></div>
+        <div><a [routerLink]="['/']" class="cursor-pointer img-destacado"><img [src]="descatacado2" alt=""></a></div>
+        <div><a [routerLink]="['/']" class="cursor-pointer img-destacado"><img [src]="descatacado3" alt=""></a></div>
+      </div>
+    </div>
+    
+
+
+</section>

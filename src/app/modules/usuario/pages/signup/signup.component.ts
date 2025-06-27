@@ -7,12 +7,12 @@ import { ButtonModule } from 'primeng/button';
 import { SelectModule } from 'primeng/select';
 import { ToastModule } from 'primeng/toast';
 import { UsuarioService } from '../../../../api/services/usuario/usuario.service';
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { UsuarioRegistro } from '../../interfaces/usuario.interface';
 
 @Component({
   selector: 'app-signup',
-    imports: [ButtonModule, RouterLink, ReactiveFormsModule, InputTextModule, SelectModule, ToastModule, NgIf],
+    imports: [ButtonModule, RouterLink, ReactiveFormsModule, InputTextModule, SelectModule, ToastModule, NgIf, NgClass],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
   providers: [MessageService],
@@ -23,6 +23,8 @@ export class SignupComponent implements OnInit,OnDestroy {
   usuarioService = inject(UsuarioService)
   form!: FormGroup;
   spinner = true;
+  bgImg: string = '/img/bg-jordan.jpg';
+
 
   ngOnInit(): void {
     this.spinner = false;

@@ -20,10 +20,11 @@ private authService = inject(AuthUsuarioService);
 
   usuarioLogueado = this.authService.usuario;
 
+   private usuarioEffect = effect(() => {
+    console.log('Usuario:', this.usuarioLogueado());
+  })
+  
   ngOnInit(): void {
-    effect(() => {
-    console.log('Usuario en menú:', this.usuarioLogueado());
-  });
+   
   }
-
 }
