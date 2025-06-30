@@ -1,18 +1,17 @@
 import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { SelectModule } from 'primeng/select';
 import { ToastModule } from 'primeng/toast';
 import { UsuarioService } from '../../../../api/services/usuario/usuario.service';
-import { NgClass, NgIf } from '@angular/common';
+import { NgIf } from '@angular/common';
 import { UsuarioRegistro } from '../../interfaces/usuario.interface';
 
 @Component({
   selector: 'app-signup',
-    imports: [ButtonModule, RouterLink, ReactiveFormsModule, InputTextModule, SelectModule, ToastModule, NgIf, NgClass],
+    imports: [ButtonModule, ReactiveFormsModule, InputTextModule, SelectModule, ToastModule, NgIf],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
   providers: [MessageService],
