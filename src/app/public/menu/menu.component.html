@@ -17,6 +17,30 @@
         >Ver Productos</a>
       </li>
 
+      <li class="nav-item">
+        <!-- <a
+          [routerLink]="['/producto/ver-productos']"
+          class="nav-link"
+          routerLinkActive="active"
+        >
+          <img [src]="cart" class="cart cart-default" alt="">
+          <img [src]="cart1" class="cart cart-hover" alt="">
+      </a> -->
+        <button (click)="visible2 = true" class="cart-btn">
+                    <img [src]="cart1" class="cart cart-hover" alt="">
+
+        </button>
+
+        <p-drawer header="Tu carrito" [(visible)]="visible2" position="right">
+          <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+          </p>
+        </p-drawer>
+
+      </li>
+
       <li class="nav-item user-name">
         {{ usuarioLogueado()?.firstName }} {{ usuarioLogueado()?.lastName }}
       </li>

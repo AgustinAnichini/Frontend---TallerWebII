@@ -58,3 +58,27 @@ body {
   padding: .1rem .3rem;
   border-radius: .2rem;
 }
+
+
+.cart-btn{
+  background-color: var(--color-acento);
+  border: none;
+  color: var(--color-primario);
+  font-family: 'Bebas Neue', sans-serif;
+  padding: 0rem .2rem;
+
+}
+
+.cart-btn img{
+  width: 1.5rem;
+  height: auto;
+}
+
+::ng-deep .p-drawer-header {
+  background-color: var(--color-acento);
+  color: var(--color-primario);
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 1rem;
+}

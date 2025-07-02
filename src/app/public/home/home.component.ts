@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { GalleriaModule } from 'primeng/galleria';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+
+
 
 @Component({
   selector: 'app-home',
-  imports: [GalleriaModule, RouterLink],
+  imports: [GalleriaModule, RouterLink, CardModule, ButtonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
